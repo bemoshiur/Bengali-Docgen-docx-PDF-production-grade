@@ -1,0 +1,33 @@
+{
+  "name": "@lipi/fonts",
+  "version": "0.1.0",
+  "description": "OFL-licensed Bengali fonts bundled for the `lipi` document generator. Licences travel with the fonts.",
+  "keywords": ["bengali", "bangla", "fonts", "ofl", "lipi", "noto", "hind-siliguri", "tiro-bangla"],
+  "license": "OFL-1.1",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "fonts",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bemoshiur/Bengali-Docgen-docx-PDF-production-grade.git",
+    "directory": "packages/fonts"
+  }
+}

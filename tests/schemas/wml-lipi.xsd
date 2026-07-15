@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Focused WordprocessingML schema for `lipi`.
+
+  BUILD_PROMPT.md §5.4 wants schema validation whose specific job is to catch
+  WRONG ELEMENT ORDER inside CT_RPr and CT_Font ("a sequence, not a choice —
+  wrong order = file Word silently repairs or rejects"). The full ISO
+  ISO-IEC29500-4 schema set could not be fetched offline, so this vendored
+  schema models exactly those two ordered content models (plus the container
+  needed to validate extracted fragments in one pass). Attributes are validated
+  leniently (anyAttribute) — the point here is element ORDER.
+
+  Drop the full `wml.xsd` into this directory and point validate-xml.ts at it to
+  supersede this focused schema. See JOURNEY.md.
+-->
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+    targetNamespace="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+    elementFormDefault="qualified">
+
+  <!-- A leaf element: any attributes, no children (b, sz, rFonts, lang, sig, embed*, …). -->
+  <xs:complexType name="Leaf">
+    <xs:anyAttribute processContents="lax"/>
+  </xs:complexType>
+
+  <!-- CT_RPr: the run-property sequence lipi emits, in canonical ECMA-376 order. -->
+  <xs:element name="rPr">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="rStyle" type="w:Leaf" minOccurs="0"/>
+        <xs:element name="rFonts" type="w:Leaf" minOccurs="0"/>
+        <xs:element name="b" type="w:Leaf" minOccurs="0"/>
+        <xs:element name="bCs" type="w:Leaf" minOccurs="0"/>
+        <xs:element name="i" type="w:Leaf" minOccurs="0"/>
+        <xs:element name="iCs" type="w:Leaf" minOccurs="0"/>
+        <xs:element name="smallCaps" type="w:Leaf" minOccurs="0"/>
+        <xs:element name="strike" type="w:Leaf" minOccurs="0"/>
+        <xs:element name="color" type="w:Leaf" minOccurs="0"/>
+        <xs:element name="sz" type="w:Leaf" minOccurs="0"/>
+        <xs:element name="szCs" type="w:Leaf" minOccurs="0"/>
+        <xs:element name="u" type="w:Leaf" minOccurs="0"/>
+        <xs:element name="vertAlign" type="w:Leaf" minOccurs="0"/>
+        <xs:element name="rtl" type="w:Leaf" minOccurs="0"/>
+        <xs:element name="lang" type="w:Leaf" minOccurs="0"/>
+      </xs:sequence>
+      <xs:anyAttribute processContents="lax"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- CT_Font: fontTable entry, children in canonical order. -->
+  <xs:element name="font">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="panose1" type="w:Leaf" minOccurs="0"/>
+        <xs:element name="charset" type="w:Leaf" minOccurs="0"/>
+        <xs:element name="family" type="w:Leaf" minOccurs="0"/>
+        <xs:element name="pitch" type="w:Leaf" minOccurs="0"/>
+        <xs:element name="sig" type="w:Leaf" minOccurs="0"/>
+        <xs:element name="embedRegular" type="w:Leaf" minOccurs="0"/>
+        <xs:element name="embedBold" type="w:Leaf" minOccurs="0"/>
+        <xs:element name="embedItalic" type="w:Leaf" minOccurs="0"/>
+        <xs:element name="embedBoldItalic" type="w:Leaf" minOccurs="0"/>
+      </xs:sequence>
+      <xs:anyAttribute processContents="lax"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Wrapper so many extracted fragments validate in a single xmllint pass. -->
+  <xs:element name="fragments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="w:rPr"/>
+          <xs:element ref="w:font"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  unit:
+    name: unit + typecheck + xml-schema
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: sudo apt-get update && sudo apt-get install -y libxml2-utils
+      - run: pnpm install --no-frozen-lockfile
+      - run: pnpm build
+      - run: pnpm typecheck
+      - run: pnpm test
+      - run: pnpm validate:xml
+
+  visual:
+    name: pdf + visual regression (LibreOffice)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build test image
+        run: docker build -f Dockerfile.test -t lipi-test .
+      - name: Run PDF + visual tests
+        run: docker run --rm -v "${{ github.workspace }}/tests/visual:/app/tests/visual" lipi-test

@@ -1,0 +1,31 @@
+{
+  "name": "lipi-monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Correct Bengali (বাংলা) DOCX and PDF generation from Node.js",
+  "type": "module",
+  "packageManager": "pnpm@10.33.3",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "pnpm -r --filter ./packages/** build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:visual": "docker compose -f docker-compose.test.yml run --rm test",
+    "test:visual:local": "vitest run tests/visual",
+    "spike": "node scripts/spike-odttf.ts",
+    "typecheck": "pnpm -r --filter ./packages/** typecheck",
+    "validate:xml": "node scripts/validate-xml.ts",
+    "demo": "node packages/lipi/dist/cli/index.js demo"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "fflate": "^0.8.2",
+    "pdfjs-dist": "^4.9.155",
+    "pixelmatch": "^6.0.0",
+    "pngjs": "^7.0.0",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

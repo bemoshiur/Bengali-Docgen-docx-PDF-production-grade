@@ -1,0 +1,67 @@
+{
+  "name": "lipi",
+  "version": "0.1.0",
+  "description": "Correct Bengali (বাংলা) DOCX and PDF generation from Node.js — conjuncts, embedded fonts, page-accurate TOCs.",
+  "keywords": [
+    "bengali",
+    "bangla",
+    "docx",
+    "ooxml",
+    "pdf",
+    "font-embedding",
+    "indic",
+    "complex-script",
+    "word",
+    "toc"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./bangla": {
+      "types": "./dist/bangla/index.d.ts",
+      "import": "./dist/bangla/index.js"
+    }
+  },
+  "bin": {
+    "lipi": "./dist/cli/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "fflate": "^0.8.2"
+  },
+  "devDependencies": {
+    "@lipi/fonts": "workspace:*"
+  },
+  "optionalDependencies": {
+    "pdfjs-dist": "^4.9.155"
+  },
+  "peerDependencies": {
+    "@lipi/fonts": "^0.1.0"
+  },
+  "peerDependenciesMeta": {
+    "@lipi/fonts": {
+      "optional": true
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bemoshiur/Bengali-Docgen-docx-PDF-production-grade.git",
+    "directory": "packages/lipi"
+  }
+}

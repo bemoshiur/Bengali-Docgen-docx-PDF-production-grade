@@ -1,0 +1,9 @@
+# Run the LibreOffice-backed tests reproducibly:  docker compose -f docker-compose.test.yml run --rm test
+services:
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    # Mount the visual baselines so a bootstrapped/updated PNG lands back in the repo.
+    volumes:
+      - ./tests/visual:/app/tests/visual

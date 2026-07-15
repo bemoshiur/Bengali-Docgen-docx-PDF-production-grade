@@ -1,0 +1,13 @@
+{
+  "name": "@lipi/example-tor-bengali",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "node generate.ts"
+  },
+  "dependencies": {
+    "lipi": "workspace:*",
+    "@lipi/fonts": "workspace:*"
+  }
+}

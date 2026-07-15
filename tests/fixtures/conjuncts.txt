@@ -1,0 +1,28 @@
+ক্ষ        ka+hasant+ssa — the canonical conjunct
+জ্ঞ        jha-nya ligature
+ঞ্জ        nya+ja
+ক্র        ra-phala, subjoined ra
+র্ক        REPH — ra moves ABOVE and AFTER the following consonant
+র্ক্য       reph + ya-phala stacked
+স্ত্র       triple conjunct
+ন্ত্র       triple
+ক্ষ্ম       four-part
+কি        i-kar renders BEFORE the consonant (logical after, visual before)
+কী
+কু কূ      u-kar/uu-kar attach below, shape changes per consonant
+কৃ        ri-kar
+কে কৈ     e-kar/oi-kar render BEFORE
+কো        o-kar = SPLIT matra, glyphs on BOTH sides
+কৌ        au-kar = SPLIT matra — the single best breakage detector
+হৃ         special ligature
+ত্ত        doubled
+ঙ্ক
+ড়  ঢ়  য়    nukta forms
+ৎ         khanda ta
+ং  ঃ  ঁ     anusvara / visarga / candrabindu
+০১২৩৪৫৬৭৮৯  Bengali digits
+৳         taka sign U+09F3
+৺         isshar
+মুহাম্মদ     real-word smoke test
+বাংলাদেশ সরকার
+গণপ্রজাতন্ত্রী বাংলাদেশ সরকার

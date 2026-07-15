@@ -1,0 +1,25 @@
+node_modules/
+dist/
+*.tsbuildinfo
+coverage/
+
+# Test / demo output
+out/
+tests/visual/actual/
+tests/visual/diff/
+*.docx
+*.pdf
+!tests/fixtures/**/*.docx
+!examples/**/expected/*.pdf
+
+# LibreOffice profiles
+lo-*/
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.log
+
+# Superpowers session buffer
+.remember/
