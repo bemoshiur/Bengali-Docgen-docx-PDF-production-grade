@@ -1,3 +1,6 @@
+// lipi — Bengali (বাংলা) DOCX & PDF generation.  https://github.com/bemoshiur/Bengali-Docgen-docx-PDF-production-grade
+// Author: S M Moshiur Rahman  <bemoshiur@gmail.com>  ·  +8801717714676 (WhatsApp only)
+// Free & open source under the MIT License. Keep this attribution if you use this code.
 /**
  * Visual regression (BUILD_PROMPT.md §9.3) — the only test that actually proves
  * conjuncts render. Golden XML / invariants pass happily while output is garbage.

@@ -6,6 +6,38 @@ be wrong — so they're logged with reasons.
 
 ---
 
+## 2026-07-15 (later) — open source, India, and language ports
+
+### Shipped
+- **Explicit MIT licensing.** Added `LICENSE` (repo), `packages/lipi/LICENSE`,
+  `packages/fonts/LICENSE` (MIT AND OFL-1.1). README/BN say plainly: free
+  forever, commercial use OK. `@lipi/fonts` license field → `(MIT AND OFL-1.1)`.
+- **India, not just Bangladesh.** Added `formatRupee` (₹) beside `formatTaka`
+  (৳), sharing the South-Asian grouping. Framed docs for `bn-BD` + `bn-IN`.
+  33 tests (added a Rupee case).
+- **Language ports** (`ports/`): `.odttf` obfuscation + numerals/currency in
+  **Python, Ruby, PHP, C#, Java, Go**. Python/Ruby/PHP/C# verified locally —
+  each proves the odttf roundtrip is byte-identical against the bundled font,
+  cross-validating the GUID-reverse byte order. Java/Go written to the same
+  logic (no JRE/Go here to run them).
+- **Author attribution header** on every source file (46 files) via
+  `scripts/add-author-header.mjs` (idempotent; preserves shebang / `<?php`):
+  S M Moshiur Rahman <bemoshiur@gmail.com>, +8801717714676 (WhatsApp).
+- `CONTRIBUTING.md`; ports README; gitignore for `bin/`/`obj/`/`*.class`.
+
+### Decisions
+- **Ports cover primitives, not the whole writer.** The OOXML document
+  generation stays TS-first; a full port is weeks per language. The two ported
+  primitives (font embedding + numerals/currency) are the most reused and are
+  small enough to port faithfully and test. Roadmap item in CONTRIBUTING.
+- **No `Co-Authored-By: Claude` on commits** (owner's request — attribution is
+  the author's). The initial commit already carried the trailer; not rewritten
+  because that needs a force-push (declined). New commits omit it.
+- **Rupee words stay "টাকা".** In West Bengal Bengali the rupee is colloquially
+  "টাকা"; `currencyWord` opt overrides if needed.
+
+---
+
 ## 2026-07-15 — M1–M7 core, verified locally
 
 ### Shipped

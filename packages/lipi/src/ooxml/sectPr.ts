@@ -1,3 +1,6 @@
+// lipi — Bengali (বাংলা) DOCX & PDF generation.  https://github.com/bemoshiur/Bengali-Docgen-docx-PDF-production-grade
+// Author: S M Moshiur Rahman  <bemoshiur@gmail.com>  ·  +8801717714676 (WhatsApp only)
+// Free & open source under the MIT License. Keep this attribution if you use this code.
 /**
  * `w:sectPr` emission. This is where BUILD_PROMPT.md §6's TOC trick lives:
  * front matter and body get their OWN sections with independent

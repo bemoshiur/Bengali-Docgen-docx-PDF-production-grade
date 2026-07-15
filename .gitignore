@@ -3,6 +3,11 @@ dist/
 *.tsbuildinfo
 coverage/
 
+# Port build artifacts (.NET / Java / Go)
+bin/
+obj/
+*.class
+
 # Test / demo output
 out/
 tests/visual/actual/

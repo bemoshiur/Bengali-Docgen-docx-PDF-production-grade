@@ -1,3 +1,6 @@
+// lipi — Bengali (বাংলা) DOCX & PDF generation.  https://github.com/bemoshiur/Bengali-Docgen-docx-PDF-production-grade
+// Author: S M Moshiur Rahman  <bemoshiur@gmail.com>  ·  +8801717714676 (WhatsApp only)
+// Free & open source under the MIT License. Keep this attribution if you use this code.
 /**
  * Bengali (Bangla) numeral conversion. Bengali uses its own digit glyphs
  * ০১২৩৪৫৬৭৮৯ (U+09E6–U+09EF); every generated table, TOC page reference and

@@ -12,7 +12,12 @@
     "indic",
     "complex-script",
     "word",
-    "toc"
+    "toc",
+    "bangladesh",
+    "india",
+    "west-bengal",
+    "taka",
+    "rupee"
   ],
   "license": "MIT",
   "type": "module",

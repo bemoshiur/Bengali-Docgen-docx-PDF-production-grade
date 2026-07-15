@@ -1,3 +1,6 @@
+// lipi — Bengali (বাংলা) DOCX & PDF generation.  https://github.com/bemoshiur/Bengali-Docgen-docx-PDF-production-grade
+// Author: S M Moshiur Rahman  <bemoshiur@gmail.com>  ·  +8801717714676 (WhatsApp only)
+// Free & open source under the MIT License. Keep this attribution if you use this code.
 /**
  * Example: a real Terms-of-Reference (ToR) document with front matter, a static
  * TOC, multiple sections, a staffing table and a BoQ — the shape of an actual

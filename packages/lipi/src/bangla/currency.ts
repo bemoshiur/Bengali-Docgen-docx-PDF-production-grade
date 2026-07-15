@@ -1,3 +1,6 @@
+// lipi — Bengali (বাংলা) DOCX & PDF generation.  https://github.com/bemoshiur/Bengali-Docgen-docx-PDF-production-grade
+// Author: S M Moshiur Rahman  <bemoshiur@gmail.com>  ·  +8801717714676 (WhatsApp only)
+// Free & open source under the MIT License. Keep this attribution if you use this code.
 /**
  * Bengali Taka (৳, U+09F3) formatting with correct South-Asian grouping.
  *
@@ -8,17 +11,25 @@
  */
 import { toBengaliNumerals } from './numerals.js';
 
+/** Bangladeshi Taka sign (U+09F3). */
 export const TAKA_SIGN = '৳';
+/** Indian Rupee sign (U+20B9) — for Bengali documents in India (West Bengal, etc.). */
+export const RUPEE_SIGN = '₹';
 
-export interface TakaOptions {
+export interface CurrencyOptions {
   numerals?: 'bengali' | 'ascii';
-  /** Prepend the ৳ sign. Default true. */
+  /** Prepend the currency sign. Default true. */
   symbol?: boolean;
   /** Spell the amount out in Bengali words (e.g. "দশ লক্ষ টাকা"). */
   words?: boolean;
-  /** Force a fixed number of decimal (poisha) places. */
+  /** Force a fixed number of decimal (poisha/paisa) places. */
   decimals?: number;
+  /** Word used in the words form. Default "টাকা" (used for both ৳ and ₹ in Bengali). */
+  currencyWord?: string;
 }
+
+/** Back-compat alias. */
+export type TakaOptions = CurrencyOptions;
 
 /**
  * Group an integer digit string in the Indian/Bengali style:
@@ -35,17 +46,12 @@ export function groupSouthAsian(intDigits: string): string {
   return `${grouped},${tail}`;
 }
 
-/**
- * Format a Taka amount.
- * @example formatTaka(1000000)                 // "৳১০,০০,০০০"
- * @example formatTaka(1000000, {words:true})   // "দশ লক্ষ টাকা"
- * @example formatTaka(1234.5, {decimals:2})    // "৳১,২৩৪.৫০"
- */
-export function formatTaka(amount: number, opts: TakaOptions = {}): string {
-  const { numerals = 'bengali', symbol = true, words = false, decimals } = opts;
+/** Shared money formatter used by {@link formatTaka} and {@link formatRupee}. */
+function formatMoney(amount: number, symbolChar: string, opts: CurrencyOptions): string {
+  const { numerals = 'bengali', symbol = true, words = false, decimals, currencyWord = 'টাকা' } = opts;
 
   if (words) {
-    return `${takaInWords(Math.round(amount))} টাকা`;
+    return `${takaInWords(Math.round(amount))} ${currencyWord}`;
   }
 
   const negative = amount < 0;
@@ -63,7 +69,27 @@ export function formatTaka(amount: number, opts: TakaOptions = {}): string {
   if (numerals === 'bengali') body = toBengaliNumerals(body);
 
   const sign = negative ? '-' : '';
-  return `${sign}${symbol ? TAKA_SIGN : ''}${body}`;
+  return `${sign}${symbol ? symbolChar : ''}${body}`;
+}
+
+/**
+ * Format a Bangladeshi Taka amount (৳) with South-Asian lakh/crore grouping.
+ * @example formatTaka(1000000)                 // "৳১০,০০,০০০"
+ * @example formatTaka(1000000, {words:true})   // "দশ লক্ষ টাকা"
+ * @example formatTaka(1234.5, {decimals:2})    // "৳১,২৩৪.৫০"
+ */
+export function formatTaka(amount: number, opts: CurrencyOptions = {}): string {
+  return formatMoney(amount, TAKA_SIGN, opts);
+}
+
+/**
+ * Format an Indian Rupee amount (₹) — for Bengali documents in India — with the
+ * same South-Asian lakh/crore grouping.
+ * @example formatRupee(1000000)                // "₹১০,০০,০০০"
+ * @example formatRupee(1000000, {words:true})  // "দশ লক্ষ টাকা"
+ */
+export function formatRupee(amount: number, opts: CurrencyOptions = {}): string {
+  return formatMoney(amount, RUPEE_SIGN, opts);
 }
 
 // ── Number → Bengali words ─────────────────────────────────────────────────

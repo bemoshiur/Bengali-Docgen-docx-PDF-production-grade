@@ -1,3 +1,6 @@
+// lipi — Bengali (বাংলা) DOCX & PDF generation.  https://github.com/bemoshiur/Bengali-Docgen-docx-PDF-production-grade
+// Author: S M Moshiur Rahman  <bemoshiur@gmail.com>  ·  +8801717714676 (WhatsApp only)
+// Free & open source under the MIT License. Keep this attribution if you use this code.
 /**
  * `w:pPr` emission. Children of `CT_PPr` are an xsd:sequence; append in the
  * canonical ECMA-376 order (pStyle → keepNext → … → jc → outlineLvl → sectPr).

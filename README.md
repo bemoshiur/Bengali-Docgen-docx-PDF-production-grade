@@ -12,9 +12,14 @@ Node.js** — conjuncts, embedded fonts, and page-accurate TOCs, all at once. It
 opens correctly in MS Word, LibreOffice and Pages **with no Bengali font
 installed on the machine**, because the font travels inside the file.
 
-Bengali script covers Bangladesh + West Bengal + Assam + Tripura — ~270M people.
-Every government office, NGO and enterprise there generates reports and hits the
-same wall. `lipi` is the wall coming down.
+**Built for Bangladesh 🇧🇩 and India 🇮🇳.** Bengali is the language of ~270M
+people — Bangladesh plus West Bengal, Assam and Tripura in India. Every
+government office, NGO and enterprise there generates reports and hits the same
+wall. `lipi` is the wall coming down. It speaks both `bn-BD` and `bn-IN`, and
+formats both **Taka (৳)** and **Rupee (₹)** with correct lakh/crore grouping.
+
+> **Free and open source (MIT). Download it, use it, ship it — commercially or
+> not — free, forever.** No license fees, no lock-in. See [LICENSE](./LICENSE).
 
 <table>
 <tr><th>❌ typical <code>docx</code>/<code>pdfmake</code> output</th><th>✅ lipi</th></tr>
@@ -100,10 +105,11 @@ Full write-up in [BUILD_PROMPT.md](./BUILD_PROMPT.md) §2 and [CLAUDE.md](./CLAU
 ## API
 
 ```ts
-import { toBengaliNumerals, formatTaka } from 'lipi/bangla';
+import { toBengaliNumerals, formatTaka, formatRupee } from 'lipi/bangla';
 
 toBengaliNumerals(1234567)             // "১২৩৪৫৬৭"
-formatTaka(1000000)                    // "৳১০,০০,০০০"
+formatTaka(1000000)                    // "৳১০,০০,০০০"   (Bangladesh)
+formatRupee(1000000)                   // "₹১০,০০,০০০"   (India)
 formatTaka(1000000, { words: true })   // "দশ লক্ষ টাকা"
 ```
 
@@ -137,11 +143,33 @@ Siliguri, Tiro Bangla — each with its verbatim licence. Run `lipi licenses` to
 print them. v1 does **not** subset fonts (a naive subset drops conjuncts); full
 fonts are embedded, ~100–250 KB per weight.
 
+## Language ports
+
+The full document writer is TypeScript-first, but the two most reusable
+primitives — **`.odttf` font embedding** and **Bengali numerals/currency** — are
+ported to other languages in [`ports/`](./ports): **Python, Ruby, PHP, C#, Java,
+Go**. Each is a single self-testing file that proves the `.odttf` roundtrip is
+byte-identical. Use them to embed a Bengali font from your own stack today.
+
 ## Non-goals (v1)
 
 Reading/editing existing `.docx`, templating DSLs, charts/shapes, Bijoy/SutonnyMJ
 conversion, browser builds, font subsetting. Library only — no web service.
 
+## Contributing
+
+Contributions are welcome — bug reports, conjunct fixtures, and especially fuller
+language ports. Read [CLAUDE.md](./CLAUDE.md) for the three complex-script rules
+before touching the OOXML writer, and append a note to [JOURNEY.md](./JOURNEY.md).
+
 ## License
 
-MIT for `lipi`; OFL-1.1 for the bundled fonts in `@lipi/fonts`.
+**Free and open source, forever.**
+
+- `lipi` and all language ports — **MIT** ([LICENSE](./LICENSE)). Use, modify,
+  distribute and sell freely, including commercially. Just keep the copyright
+  notice.
+- Bundled fonts in `@lipi/fonts` — **SIL OFL-1.1** (also free/libre); each
+  font's licence travels with it and is printed by `lipi licenses`.
+
+Author: **S M Moshiur Rahman** · bemoshiur@gmail.com

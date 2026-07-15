@@ -1,6 +1,9 @@
+// lipi — Bengali (বাংলা) DOCX & PDF generation.  https://github.com/bemoshiur/Bengali-Docgen-docx-PDF-production-grade
+// Author: S M Moshiur Rahman  <bemoshiur@gmail.com>  ·  +8801717714676 (WhatsApp only)
+// Free & open source under the MIT License. Keep this attribution if you use this code.
 import { describe, it, expect } from 'vitest';
 import { toBengaliNumerals, toAsciiNumerals } from '../packages/lipi/src/bangla/numerals.ts';
-import { formatTaka, groupSouthAsian, takaInWords } from '../packages/lipi/src/bangla/currency.ts';
+import { formatTaka, formatRupee, groupSouthAsian, takaInWords } from '../packages/lipi/src/bangla/currency.ts';
 import { formatBanglaDate, toBanglaDate } from '../packages/lipi/src/bangla/date.ts';
 
 describe('numerals', () => {
@@ -24,6 +27,11 @@ describe('taka formatting (South-Asian grouping)', () => {
     expect(formatTaka(1000000, { symbol: false })).toBe('১০,০০,০০০');
     expect(formatTaka(1234.5, { decimals: 2 })).toBe('৳১,২৩৪.৫০');
     expect(formatTaka(-5000)).toBe('-৳৫,০০০');
+  });
+  it('formats Indian Rupee (₹) for the India audience with the same grouping', () => {
+    expect(formatRupee(1000000)).toBe('₹১০,০০,০০০');
+    expect(formatRupee(2500, { numerals: 'ascii' })).toBe('₹2,500');
+    expect(formatRupee(1000000, { words: true })).toBe('দশ লক্ষ টাকা');
   });
   it('spells amounts in Bengali words with the Indian scale', () => {
     expect(formatTaka(1000000, { words: true })).toBe('দশ লক্ষ টাকা');

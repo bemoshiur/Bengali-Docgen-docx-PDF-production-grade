@@ -1,3 +1,6 @@
+// lipi — Bengali (বাংলা) DOCX & PDF generation.  https://github.com/bemoshiur/Bengali-Docgen-docx-PDF-production-grade
+// Author: S M Moshiur Rahman  <bemoshiur@gmail.com>  ·  +8801717714676 (WhatsApp only)
+// Free & open source under the MIT License. Keep this attribution if you use this code.
 import { describe, it, expect, beforeAll } from 'vitest';
 import { unzipSync, strFromU8 } from 'fflate';
 import { Document, Heading, Para, Table, Boq, TOC, text } from '../packages/lipi/src/index.ts';
