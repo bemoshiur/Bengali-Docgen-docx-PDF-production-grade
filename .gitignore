@@ -28,3 +28,7 @@ lo-*/
 
 # Superpowers session buffer
 .remember/
+
+# Playwright MCP scratch
+.playwright-mcp/
+lipi-showcase*.png
