@@ -1,0 +1,19 @@
+lipi — third-party notices
+==========================
+
+The `lipi` source code (including all language ports under ports/) is licensed
+under the MIT License — see LICENSE. Free and open source, forever, for any use
+including commercial.
+
+Bundled fonts (packages/fonts/fonts/*.ttf) are NOT MIT. They are licensed under
+the SIL Open Font License, Version 1.1 (also a free/libre, open-source license).
+Each font's verbatim OFL text is bundled next to it as
+packages/fonts/fonts/<Font>-OFL.txt and is reproduced by `lipi licenses`.
+
+  - Noto Sans Bengali — © 2022 The Noto Project Authors
+      https://github.com/notofonts/bengali
+  - Hind Siliguri     — © 2015 Indian Type Foundry
+  - Tiro Bangla       — © 2020 The Indigo Project Authors (Tiro Typeworks)
+
+The SIL OFL permits use, study, embedding, modification and redistribution of
+the fonts free of charge. See https://openfontlicense.org.

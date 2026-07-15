@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 Moshiur Rahman and the lipi contributors
+Copyright (c) 2026 S M Moshiur Rahman and the lipi contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,17 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
---------------------------------------------------------------------------------
-
-The bundled fonts in packages/fonts/fonts/ are NOT covered by this MIT license.
-They are licensed under the SIL Open Font License, Version 1.1, and each font's
-verbatim license travels with it (packages/fonts/fonts/<Font>-OFL.txt):
-
-  - Noto Sans Bengali — © 2022 The Noto Project Authors
-  - Hind Siliguri     — © 2015 Indian Type Foundry
-  - Tiro Bangla       — © 2020 The Indigo Project Authors (Tiro Typeworks)
-
-The SIL OFL is also a free/libre, open-source license: you may use, study,
-embed, modify and redistribute these fonts free of charge. See
-https://openfontlicense.org and run `lipi licenses` to print the full texts.
