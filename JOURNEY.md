@@ -6,6 +6,40 @@ be wrong — so they're logged with reasons.
 
 ---
 
+## 2026-07-15 (latest) — GitHub Packages, release, mega README + screenshot
+
+### Shipped
+- **Published to GitHub Packages.** Renamed `lipi` → `@bemoshiur/lipi` and
+  `@lipi/fonts` → `@bemoshiur/lipi-fonts` (GitHub Packages requires the @owner
+  scope; `lipi` is taken on public npm). Updated all imports/deps/examples/docs.
+  `.github/workflows/publish.yml` publishes both via the Actions `GITHUB_TOKEN`
+  (no personal token). Confirmed: `+ @bemoshiur/lipi@0.1.0` to npm.pkg.github.com.
+- **v0.1.0 GitHub Release** with installable tarballs (bemoshiur-lipi-*.tgz).
+- **Repo metadata**: description, homepage, 18 topics. Clean MIT `LICENSE` so
+  GitHub detects the licence; `NOTICE` for the OFL fonts.
+- **Real conjunct screenshot** (`docs/screenshot-showcase.png`) via
+  `scripts/gen-showcase.mjs` + Playwright — a browser render (HarfBuzz, same
+  class as Word) of every conjunct case + a sample govt doc, bundled font
+  embedded as base64. Split matras কৌ/কো, reph র্ক, four-part ক্ষ্ম all correct.
+- **Mega README**: hero screenshot, in-depth features, architecture,
+  font-embedding + static-TOC deep dives, API reference tables, verification
+  matrix.
+
+### Fixed / caught
+- `pnpm/action-setup` failed on both workflows: `version:` conflicted with the
+  `packageManager` field → removed `version:`.
+- Root `build`/`typecheck` scripts used a broken `--filter ./packages/**` →
+  switched to `pnpm -r --if-present` (fonts builds before lipi topologically).
+- `file://` is blocked in Playwright → served the showcase over a local HTTP
+  server to screenshot it.
+
+### Decisions
+- GitHub Packages over public npm (owner's choice). Note: even public GitHub
+  Packages require auth to install — documented; the release tarballs are the
+  no-auth path. PUBLISHING.md covers both + how to switch to public npm later.
+
+---
+
 ## 2026-07-15 (later) — open source, India, and language ports
 
 ### Shipped
