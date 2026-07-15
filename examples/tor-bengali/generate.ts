@@ -8,9 +8,9 @@
  *
  *   node generate.ts            # writes tor.docx (+ tor.pdf if LibreOffice present)
  */
-import { Document, Heading, Para, Table, Boq, TOC, PageBreak, text } from 'lipi';
-import { formatBanglaDate, formatTaka } from 'lipi/bangla';
-import { notoSansBengali } from '@lipi/fonts';
+import { Document, Heading, Para, Table, Boq, TOC, PageBreak, text } from '@bemoshiur/lipi';
+import { formatBanglaDate, formatTaka } from '@bemoshiur/lipi/bangla';
+import { notoSansBengali } from '@bemoshiur/lipi-fonts';
 
 const doc = new Document({
   lang: 'bn-BD',

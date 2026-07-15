@@ -32,21 +32,21 @@ importers:
 
   examples/letterhead:
     dependencies:
-      '@lipi/fonts':
-        specifier: workspace:*
-        version: link:../../packages/fonts
-      lipi:
+      '@bemoshiur/lipi':
         specifier: workspace:*
         version: link:../../packages/lipi
+      '@bemoshiur/lipi-fonts':
+        specifier: workspace:*
+        version: link:../../packages/fonts
 
   examples/tor-bengali:
     dependencies:
-      '@lipi/fonts':
-        specifier: workspace:*
-        version: link:../../packages/fonts
-      lipi:
+      '@bemoshiur/lipi':
         specifier: workspace:*
         version: link:../../packages/lipi
+      '@bemoshiur/lipi-fonts':
+        specifier: workspace:*
+        version: link:../../packages/fonts
 
   packages/fonts: {}
 
@@ -56,7 +56,7 @@ importers:
         specifier: ^0.8.2
         version: 0.8.3
     devDependencies:
-      '@lipi/fonts':
+      '@bemoshiur/lipi-fonts':
         specifier: workspace:*
         version: link:../fonts
     optionalDependencies:

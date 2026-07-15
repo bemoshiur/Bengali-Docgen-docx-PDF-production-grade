@@ -1,5 +1,5 @@
 {
-  "name": "lipi",
+  "name": "@bemoshiur/lipi",
   "version": "0.1.0",
   "description": "Correct Bengali (বাংলা) DOCX and PDF generation from Node.js — conjuncts, embedded fonts, page-accurate TOCs.",
   "keywords": [
@@ -43,6 +43,9 @@
   "engines": {
     "node": ">=18"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit"
@@ -51,16 +54,16 @@
     "fflate": "^0.8.2"
   },
   "devDependencies": {
-    "@lipi/fonts": "workspace:*"
+    "@bemoshiur/lipi-fonts": "workspace:*"
   },
   "optionalDependencies": {
     "pdfjs-dist": "^4.9.155"
   },
   "peerDependencies": {
-    "@lipi/fonts": "^0.1.0"
+    "@bemoshiur/lipi-fonts": "^0.1.0"
   },
   "peerDependenciesMeta": {
-    "@lipi/fonts": {
+    "@bemoshiur/lipi-fonts": {
       "optional": true
     }
   },

@@ -38,12 +38,12 @@ real page numbers.</td>
 ## Quickstart
 
 ```bash
-pnpm add lipi @lipi/fonts   # @lipi/fonts is an optional peer (OFL fonts)
+pnpm add @bemoshiur/lipi @bemoshiur/lipi-fonts   # @bemoshiur/lipi-fonts is an optional peer (OFL fonts)
 ```
 
 ```ts
-import { Document, Heading, Para, Table, TOC } from 'lipi';
-import { hindSiliguri } from '@lipi/fonts';
+import { Document, Heading, Para, Table, TOC } from '@bemoshiur/lipi';
+import { hindSiliguri } from '@bemoshiur/lipi-fonts';
 
 const doc = new Document({
   lang: 'bn-BD',
@@ -67,7 +67,7 @@ await doc.toPdf('out.pdf');    // requires LibreOffice (soffice) on PATH
 Or try the demo without writing any code:
 
 ```bash
-npx lipi demo ./out    # writes out/demo.docx (+ demo.pdf if LibreOffice is installed)
+npx @bemoshiur/lipi demo ./out    # writes out/demo.docx (+ demo.pdf if LibreOffice is installed)
 ```
 
 ## Why is this hard? (the three bugs everyone hits)
@@ -105,7 +105,7 @@ Full write-up in [BUILD_PROMPT.md](./BUILD_PROMPT.md) §2 and [CLAUDE.md](./CLAU
 ## API
 
 ```ts
-import { toBengaliNumerals, formatTaka, formatRupee } from 'lipi/bangla';
+import { toBengaliNumerals, formatTaka, formatRupee } from '@bemoshiur/lipi/bangla';
 
 toBengaliNumerals(1234567)             // "১২৩৪৫৬৭"
 formatTaka(1000000)                    // "৳১০,০০,০০০"   (Bangladesh)
@@ -138,7 +138,7 @@ pnpm test:visual   # Docker + LibreOffice + pixel baselines
 
 ## Fonts & licensing
 
-`@lipi/fonts` bundles **OFL-1.1 only** — Noto Sans Bengali (default), Hind
+`@bemoshiur/lipi-fonts` bundles **OFL-1.1 only** — Noto Sans Bengali (default), Hind
 Siliguri, Tiro Bangla — each with its verbatim licence. Run `lipi licenses` to
 print them. v1 does **not** subset fonts (a naive subset drops conjuncts); full
 fonts are embedded, ~100–250 KB per weight.
@@ -169,7 +169,7 @@ before touching the OOXML writer, and append a note to [JOURNEY.md](./JOURNEY.md
 - `lipi` and all language ports — **MIT** ([LICENSE](./LICENSE)). Use, modify,
   distribute and sell freely, including commercially. Just keep the copyright
   notice.
-- Bundled fonts in `@lipi/fonts` — **SIL OFL-1.1** (also free/libre); each
+- Bundled fonts in `@bemoshiur/lipi-fonts` — **SIL OFL-1.1** (also free/libre); each
   font's licence travels with it and is printed by `lipi licenses`.
 
 Author: **S M Moshiur Rahman** · bemoshiur@gmail.com

@@ -4,12 +4,12 @@ Correct Bengali (বাংলা) DOCX & PDF generation from Node.js — conjunc
 fonts, and page-accurate TOCs, all at once.
 
 ```bash
-pnpm add lipi @lipi/fonts
+pnpm add @bemoshiur/lipi @bemoshiur/lipi-fonts
 ```
 
 ```ts
-import { Document, Heading, Para, TOC } from 'lipi';
-import { hindSiliguri } from '@lipi/fonts';
+import { Document, Heading, Para, TOC } from '@bemoshiur/lipi';
+import { hindSiliguri } from '@bemoshiur/lipi-fonts';
 
 const doc = new Document({ lang: 'bn-BD', font: hindSiliguri, numerals: 'bengali' });
 doc.section({ pageNumbers: { format: 'lowerRoman', start: 1 } }).add(new TOC());
@@ -23,7 +23,7 @@ await doc.toPdf('out.pdf');   // needs LibreOffice on PATH
 Why this is hard and how it's solved (the three complex-script bugs, font
 embedding, static TOC): see the [repo README](https://github.com/bemoshiur/Bengali-Docgen-docx-PDF-production-grade).
 
-`@lipi/fonts` is an **optional** peer — bring your own font with
+`@bemoshiur/lipi-fonts` is an **optional** peer — bring your own font with
 `registerFont({ name, regular, bold, italic, boldItalic })`. PDF output needs
 LibreOffice (`soffice`); `toDocx` does not.
 

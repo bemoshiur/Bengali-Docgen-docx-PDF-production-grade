@@ -1,0 +1,38 @@
+name: Publish to GitHub Packages
+
+# Publishes @bemoshiur/lipi and @bemoshiur/lipi-fonts to this repo's GitHub
+# Packages registry. Uses the built-in GITHUB_TOKEN (packages: write) — no
+# personal token needed. Triggers on a published release, or manually.
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@bemoshiur'
+          cache: pnpm
+      - run: pnpm install --no-frozen-lockfile
+      - run: pnpm build
+      - name: Publish @bemoshiur/lipi-fonts
+        run: pnpm --filter @bemoshiur/lipi-fonts publish --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish @bemoshiur/lipi
+        run: pnpm --filter @bemoshiur/lipi publish --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

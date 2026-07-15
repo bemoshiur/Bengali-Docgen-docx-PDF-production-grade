@@ -27,12 +27,12 @@ Java ও Go-তে পোর্ট করা হয়েছে।
 ## দ্রুত শুরু
 
 ```bash
-pnpm add lipi @lipi/fonts
+pnpm add @bemoshiur/lipi @bemoshiur/lipi-fonts
 ```
 
 ```ts
-import { Document, Heading, Para, Table, TOC } from 'lipi';
-import { hindSiliguri } from '@lipi/fonts';
+import { Document, Heading, Para, Table, TOC } from '@bemoshiur/lipi';
+import { hindSiliguri } from '@bemoshiur/lipi-fonts';
 
 const doc = new Document({
   lang: 'bn-BD',
@@ -56,7 +56,7 @@ await doc.toPdf('out.pdf');    // LibreOffice (soffice) প্রয়োজন
 কোড না লিখেই ডেমো দেখতে:
 
 ```bash
-npx lipi demo ./out    # out/demo.docx তৈরি করে (LibreOffice থাকলে demo.pdf-ও)
+npx @bemoshiur/lipi demo ./out    # out/demo.docx তৈরি করে (LibreOffice থাকলে demo.pdf-ও)
 ```
 
 ## এটি কঠিন কেন? (যে তিনটি বাগে সবাই আটকায়)
@@ -96,10 +96,10 @@ docx → soffice → pdf → pdftoppm → pixelmatch vs baseline   (pnpm test:vi
 
 ## ফন্ট ও লাইসেন্স
 
-`@lipi/fonts` কেবল **OFL-1.1** ফন্ট বান্ডল করে — Noto Sans Bengali (ডিফল্ট), Hind
+`@bemoshiur/lipi-fonts` কেবল **OFL-1.1** ফন্ট বান্ডল করে — Noto Sans Bengali (ডিফল্ট), Hind
 Siliguri, Tiro Bangla — প্রতিটির হুবহু লাইসেন্স সহ। `lipi licenses` চালিয়ে দেখুন।
 v1-এ ফন্ট subset করা হয় না (naive subset যুক্তাক্ষর ফেলে দেয়)।
 
 ## লাইসেন্স
 
-`lipi`-এর জন্য MIT; `@lipi/fonts`-এর বান্ডল করা ফন্টের জন্য OFL-1.1।
+`lipi`-এর জন্য MIT; `@bemoshiur/lipi-fonts`-এর বান্ডল করা ফন্টের জন্য OFL-1.1।

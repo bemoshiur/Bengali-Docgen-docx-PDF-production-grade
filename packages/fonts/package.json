@@ -1,5 +1,5 @@
 {
-  "name": "@lipi/fonts",
+  "name": "@bemoshiur/lipi-fonts",
   "version": "0.1.0",
   "description": "OFL-licensed Bengali fonts bundled for the `lipi` document generator. Licences travel with the fonts.",
   "keywords": ["bengali", "bangla", "fonts", "ofl", "lipi", "noto", "hind-siliguri", "tiro-bangla", "bangladesh", "india", "west-bengal"],
@@ -20,6 +20,9 @@
   ],
   "engines": {
     "node": ">=18"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",

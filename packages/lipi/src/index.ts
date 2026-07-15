@@ -6,8 +6,8 @@
  *
  * @example
  * ```ts
- * import { Document, Heading, Para, TOC } from 'lipi';
- * import { hindSiliguri } from '@lipi/fonts';
+ * import { Document, Heading, Para, TOC } from '@bemoshiur/lipi';
+ * import { hindSiliguri } from '@bemoshiur/lipi-fonts';
  *
  * const doc = new Document({ lang: 'bn-BD', font: hindSiliguri, numerals: 'bengali' });
  * doc.section({ pageNumbers: { format: 'lowerRoman', start: 1 } }).add(new TOC());
@@ -69,7 +69,7 @@ export { readFontInfo, coversBengali, type FontInfo, type FontSig } from './font
 // PDF
 export { findSoffice, convertToPdf, SofficeNotFoundError } from './pdf/libreoffice.js';
 
-// Bangla utilities (also available at 'lipi/bangla')
+// Bangla utilities (also available at '@bemoshiur/lipi/bangla')
 export {
   BENGALI_DIGITS,
   toBengaliNumerals,

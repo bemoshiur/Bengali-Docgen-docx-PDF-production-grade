@@ -1,4 +1,4 @@
-# @lipi/fonts
+# @bemoshiur/lipi-fonts
 
 OFL-1.1 Bengali fonts bundled for [`lipi`](https://www.npmjs.com/package/lipi).
 Only SIL Open Font License fonts are bundled — the OFL requires the licence to
@@ -11,7 +11,7 @@ travel with the font, so each family ships its verbatim `OFL.txt`.
 | **Tiro Bangla** | Regular, Italic | OFL-1.1 |
 
 ```ts
-import { notoSansBengali, hindSiliguri, tiroBangla, licenses } from '@lipi/fonts';
+import { notoSansBengali, hindSiliguri, tiroBangla, licenses } from '@bemoshiur/lipi-fonts';
 // pass any of these as `new Document({ font: notoSansBengali })`
 ```
 

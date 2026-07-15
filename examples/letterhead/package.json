@@ -1,5 +1,5 @@
 {
-  "name": "@lipi/example-letterhead",
+  "name": "@bemoshiur/example-letterhead",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -7,7 +7,7 @@
     "generate": "node generate.ts"
   },
   "dependencies": {
-    "lipi": "workspace:*",
-    "@lipi/fonts": "workspace:*"
+    "@bemoshiur/lipi": "workspace:*",
+    "@bemoshiur/lipi-fonts": "workspace:*"
   }
 }

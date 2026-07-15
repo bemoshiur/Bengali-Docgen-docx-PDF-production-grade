@@ -17,17 +17,17 @@ const HELP = `lipi — correct Bengali (বাংলা) DOCX/PDF generation
 
 Usage:
   lipi demo [outDir]     Generate demo.docx (and demo.pdf if soffice is installed)
-  lipi licenses          Print licences for bundled @lipi/fonts
+  lipi licenses          Print licences for bundled @bemoshiur/lipi-fonts
   lipi --version
   lipi --help
 `;
 
-async function loadFonts(): Promise<typeof import('@lipi/fonts')> {
+async function loadFonts(): Promise<typeof import('@bemoshiur/lipi-fonts')> {
   try {
-    return await import('@lipi/fonts');
+    return await import('@bemoshiur/lipi-fonts');
   } catch {
     console.error(
-      'This command needs the @lipi/fonts package.\n  pnpm add @lipi/fonts',
+      'This command needs the @bemoshiur/lipi-fonts package.\n  pnpm add @bemoshiur/lipi-fonts',
     );
     process.exit(1);
   }

@@ -5,9 +5,9 @@
  * Example: an official Bengali letter with a letterhead header and a footer
  * page number.  node generate.ts  → letter.docx
  */
-import { Document, Para, text } from 'lipi';
-import { formatBanglaDate } from 'lipi/bangla';
-import { hindSiliguri } from '@lipi/fonts';
+import { Document, Para, text } from '@bemoshiur/lipi';
+import { formatBanglaDate } from '@bemoshiur/lipi/bangla';
+import { hindSiliguri } from '@bemoshiur/lipi-fonts';
 
 const doc = new Document({ lang: 'bn-BD', font: hindSiliguri, numerals: 'bengali' });
 

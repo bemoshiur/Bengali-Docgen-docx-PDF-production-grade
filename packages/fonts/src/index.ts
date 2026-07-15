@@ -2,7 +2,7 @@
 // Author: S M Moshiur Rahman  <bemoshiur@gmail.com>  ·  +8801717714676 (WhatsApp only)
 // Free & open source under the MIT License. Keep this attribution if you use this code.
 /**
- * `@lipi/fonts` — OFL-1.1 Bengali fonts bundled for `lipi`.
+ * `@bemoshiur/lipi-fonts` — OFL-1.1 Bengali fonts bundled for `lipi`.
  *
  * Only SIL Open Font License fonts are bundled (BUILD_PROMPT.md §7); the OFL
  * requires the licence to travel with the font, so each family ships its
